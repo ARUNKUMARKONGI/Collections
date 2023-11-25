@@ -59,13 +59,11 @@ public class genericStack<T> {
 
         System.out.println("Size of the stack: " + st.size());
         System.out.println("Top element: " + st.peek());
-
         st.display();
         System.out.println("Pop elements from the stack:");
         while (!st.isEmpty()) {
             System.out.println(st.pop());
         }
-
     }
 }
 
