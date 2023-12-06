@@ -33,9 +33,7 @@ public class LongestPrimeSequence {
             maxLength = curLength;
             maxSum = currSum;
         }
-
         System.out.println("Maximum sum of consecutive prime numbers is "+maxSum);
-
    }
     static void sieve(boolean[] primes) {
         int n = primes.length;

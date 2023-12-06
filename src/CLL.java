@@ -1,5 +1,62 @@
-/* We can create our own collection framework in Java with the help of Oops concepts */
+/*
+Implement a Generic CLL (circular linked list) in java using oops concepts.
 
+Test cases:
+--------------
+input=1 20 1 40 1 50 1 30
+3
+2 40
+3
+1
+100
+3
+4
+output=
+Circular Linked List:
+20 40 50 30
+Size: 4
+Element removed successfully!
+Circular Linked List:
+20 50 30
+Size: 3
+Circular Linked List:
+20 50 30 100
+Size: 4
+*/
+//write your code below
+
+
+/* We can create our own collection framework in Java with the help of Oops concepts */
+/*
+Implement a Generic CLL (circular linked list) in java using oops concepts.
+
+Test cases:
+--------------
+input=1 20 1 40 1 50 1 30
+3
+2 40
+3
+1
+100
+3
+4
+output=
+Circular Linked List:
+20 40 50 30
+Size: 4
+Element removed successfully!
+Circular Linked List:
+20 50 30
+Size: 3
+Circular Linked List:
+20 50 30 100
+Size: 4
+*/
+//write your code below
+
+
+/* We can create our own collection framework in Java with the help of Oops concepts */
+import java.util.*;
 public class CLL<E> {
     private Node<E> head;
     private int size;
@@ -13,13 +70,15 @@ public class CLL<E> {
             this.next = null;
         }
     }
-
     public CLL() {
         this.head = null;
         this.size = 0;
     }
-
     public void add(E data) {
+        if (size >= 4) {
+            System.out.println("CLL is full.");
+            return;
+        }
         Node<E> newNode = new Node<>(data);
         if (head == null) {
             head = newNode;
@@ -34,11 +93,12 @@ public class CLL<E> {
         }
         size++;
     }
-    public void remove(E value) {
+    public boolean remove(E value) {
         if (head == null) {
-            return;                                   // List is empty, nothing to remove
+            System.out.println("CLL is empty. can't remove.");
+            return false;
         }
-
+        boolean flag=false;
         if (head.data.equals(value)) {               //if we are deleting first node
             if (size == 1) {
                 head = null;                         // Remove the only node in the list
@@ -51,7 +111,7 @@ public class CLL<E> {
                 head = head.next;                     // Update the head to the next node
             }
             size--;
-            return;
+            flag=true;
         }
 
         Node<E> cur = head;
@@ -59,17 +119,23 @@ public class CLL<E> {
 
         do {                                            //if we are deleting any other node
             if (cur.data.equals(value)) {
-                prev.next = cur.next;    // Remove the current node
+                prev.next = cur.next;                  // Remove the current node
                 size--;
-                return;
+                flag=true;
             }
             prev = cur;
             cur = cur.next;
         } while (cur != null && cur != head);
+
+        return flag;
     }
 
-
     public void display() {
+        if (head == null) {
+            System.out.println("CLL is empty.");
+            return;
+        }
+        System.out.println("CLL elements are:");
         Node<E> temp = head;
         if (temp != null) {
             do {
@@ -79,45 +145,70 @@ public class CLL<E> {
         }
         System.out.println();
     }
-
-
     public int size() {
         return size;
     }
 
+
+    public boolean search(E value) {
+        Node<E> temp = head;
+        do {
+            if (temp.data.equals(value)) {
+                return true;
+            }
+            temp = temp.next;
+        } while (temp != head);
+        return false;
+    }
+
     public static void main(String[] args) {
         CLL<Integer> cll = new CLL<>();
-        cll.add(3);
-        cll.add(5);
-        cll.add(7);
-        cll.add(6);
+        Scanner sc = new Scanner(System.in);
+        int ch;
+        while(true)
+        {
+                /*
+                System.out.println("1. Add Element");
+                System.out.println("2. Remove Element");
+                System.out.println("3. Display Elements");
+                System.out.println("4. Exit");
+                System.out.print("Enter your choice: ");
+*/
+            ch = sc.nextInt();
+            switch(ch)
+            {
+                case 1:
+                    //System.out.print("Enter the element to add: ");
+                    int item = sc.nextInt();
+                    cll.add(item);
+                    break;
+                case 2:
+                    // System.out.print("Enter the element to remove: ");
+                    int re = sc.nextInt();
+                    boolean flag=cll.remove(re);
+                    if(flag)
+                        System.out.println("Element removed successfully");
+                    else
+                        System.out.println("Node Doesn't exist in CLL");
+                    break;
+                case 3:
+                    cll.display();
+                    System.out.println("Size: " + cll.size());
+                    break;
 
-        System.out.println("Circular Linked List:");
-        cll.display();
-        System.out.println("Size: " + cll.size());
+                case 4:  int search =sc.nextInt();
+                    boolean found = cll.search(search);
+                    System.out.println("Is " + search + " present? " + found);
 
-        // Reverse the circular linked list using recursion
-
-        cll.remove(6);
-
-        System.out.println("Linked List after removal of node with value 6:");
-        cll.display();
-        System.out.println("Size: " + cll.size());
+                case 5:
+                    System.exit(0);
+                    sc.close();
+                    break;
+                default:
+                    System.out.println("Invalid choice..");
+            }
+        }
     }
 }
 
 
-
-    /*public boolean search(E value) {
-        Node<E> temp = head;
-        do {
-            if (temp.data.equals(value)) {
-                return true; // Value found
-            }
-            temp = temp.next;
-        } while (temp != head);
-        return false; // Value not found
-    }
-    int searchValue = 3;
-    boolean found = circularList.search(searchValue);
-        System.out.println("Is " + searchValue + " present? " + found);*/
