@@ -82,7 +82,6 @@ public class AsteroidCollision {
 
     public static List<Integer> asteroidCollision(List<Integer> list) {
         LinkedList<Integer> stack = new LinkedList<>();
-
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) > 0 || stack.isEmpty() || stack.getLast() < 0)
             {
