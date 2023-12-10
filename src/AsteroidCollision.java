@@ -88,7 +88,7 @@ public class AsteroidCollision {
                 stack.add(list.get(i));
             } else if (stack.getLast() <= -list.get(i))
             {
-                if (stack.pollLast() < -list.get(i))
+                if (stack.pollLast() < -list.get(i))   //checks if both asteroids of same size, then delete both
                 {
                     i--;
                 }
@@ -98,3 +98,9 @@ public class AsteroidCollision {
         return new ArrayList<>(stack);
     }
 }
+ //ex: 3
+// -4 5 -10
+
+//ex 2
+// input 3
+//-4 5 -5
