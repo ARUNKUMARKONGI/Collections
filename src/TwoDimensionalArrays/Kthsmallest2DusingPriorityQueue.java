@@ -37,6 +37,8 @@ public class Kthsmallest2DusingPriorityQueue {
 
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
+                   // pq.offer(matrix[i][j]);
+                    pq.add(matrix[i][j]);
                     pq.offer(matrix[i][j]);
                 }
             }

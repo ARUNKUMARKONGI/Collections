@@ -17,7 +17,9 @@ public class PriorityCustom {
         pq.add(new items(20, 3));
         pq.add(new items(10, 2));
         pq.add(new items(30, 1));
-        pq.add(new items(50, 4));
+        pq.add(new items(50, 1));
+
+
 
         System.out.println("Values in Highest Priority Order:");
         while (!pq.isEmpty()) {

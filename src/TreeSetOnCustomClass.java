@@ -14,21 +14,23 @@ class Student implements Comparable<Student> {
     public int getId() {
         return id;
     }
-    @Override
+
     public int compareTo(Student other) {
         return Integer.compare(this.id, other.id);
     }
-
-    @Override
     public String toString() {
         return "Student{id=" + id + ", name='" + name + "'}";
     }
+
+
+    /*public int compareTo(Student o) {
+        return 0;
+    }*/
 }
 
 public class TreeSetOnCustomClass {
     public static void main(String[] args) {
         TreeSet<Student> treeSet = new TreeSet<>();
-
         treeSet.add(new Student("Arun", 102));
         treeSet.add(new Student("Akash", 101));
         treeSet.add(new Student("Aatma", 103));

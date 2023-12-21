@@ -4,8 +4,8 @@ import java.util.Comparator;
 public class PriorityQueueExample {
 
     public static void main(String[] args) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-       // PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        //PriorityQueue<Integer> pq = new PriorityQueue<>();
+       PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         pq.add(20);
         pq.add(10);
         pq.add(1);
