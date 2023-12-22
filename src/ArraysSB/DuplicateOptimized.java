@@ -25,13 +25,13 @@ public class DuplicateOptimized {
             int slow = array[0];
             int fast = array[0];
             do {
-                slow = array[slow];
+                slow = array[slow];          //2 3 1 1 intersection point 3, slow=1, fast=3
                 fast = array[array[fast]];
             } while (slow != fast);
 
-            slow = array[0];
-            while (slow != fast) {
-                slow = array[slow];
+            slow = array[0];                // slow=2
+            while (slow != fast) {          //while(2!=3)  slow=arr[2]=1  fast=arr[3]=1
+                slow = array[slow];         //since slow == fast return slow.
                 fast = array[fast];
             }
             if (slow == 0) {

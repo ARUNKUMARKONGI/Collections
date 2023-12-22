@@ -1,13 +1,13 @@
 package ArraysSB;
 import java.util.Scanner;
 
-public class DuplicateNumber2 {
+public class DuplicateNumberAnyRange {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
             System.out.print("Enter the length of the array: ");
             int n = scanner.nextInt();
-            int[] nums = new int[n + 1];
+            int[] nums = new int[n + 1]; //n+1 if index starts from 1
 
             System.out.println("Enter the elements of the array:");
             for (int i = 0; i < n; i++) {
