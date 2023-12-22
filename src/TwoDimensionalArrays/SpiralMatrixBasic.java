@@ -1,5 +1,6 @@
 package TwoDimensionalArrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 public class SpiralMatrixBasic {
@@ -55,6 +56,11 @@ public class SpiralMatrixBasic {
             }
 
             List<Integer> result = spiralOrder(matrix);
-            System.out.println("Spiral Order: " + result);
+            System.out.print("Spiral Order: ");
+            for (int num : result) {
+                System.out.print(num + " ");
+            }
+           // System.out.println("Spiral Order: " + Arrays.toString(result.toArray()));
+            //sout(result);// with brackets
         }
     }
