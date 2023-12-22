@@ -15,7 +15,10 @@ public class DuplicateOptimized {
             }
 
             int duplicate = findDuplicateNumber(array);
-            System.out.println("Duplicate Element: " + duplicate);
+            if(duplicate==-1)
+                System.out.println("No duplicate element present");
+            else
+            System.out.println("Duplicate Element is: " + duplicate);
         }
 
         public static int findDuplicateNumber(int[] array) {
@@ -31,6 +34,10 @@ public class DuplicateOptimized {
                 slow = array[slow];
                 fast = array[fast];
             }
+            if (slow == 0) {
+                return -1;     // No duplicate found
+            }
+
             return slow;
         }
     }
@@ -40,6 +47,7 @@ public class DuplicateOptimized {
 //first loop identifies intersection point, second loop exactly fetches the duplicate.
 
 //using hashset will take O(n) space, hence this is the best approach
+//this approach will work even if duplicate element not present
 
 /*
 Constraints: 1 <= n <= 10^5

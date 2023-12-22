@@ -28,3 +28,4 @@ public class DuplicateUsingXoR {
 The XOR operation cancels out the non-duplicate numbers due to the property that a ^ a = 0
 When XOR-ing all numbers from 1 to n, only the duplicate number remains in xorResult*/
 //Nte: this will work only if the range of values is within the entered array size.
+//this xor method will assume that atleast one duplicate element is present
